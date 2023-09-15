@@ -1,4 +1,5 @@
 require "set"
+require "byebug"
 
 class Array
     def my_uniq 
@@ -27,11 +28,10 @@ class Array
     def my_transpose
         holder = []
         
-        self.each_with_index do |ele1, row|
-            print row
+        self.each_with_index do |row, row_index|
             row_holder = []
-            row.each_with_index do |ele2, col|
-                row_holder << self[col][row]
+            row.each_with_index do |col, col_index|
+                row_holder << self[col_index][row_index]
             end
 
             holder << row_holder
