@@ -3,8 +3,8 @@ class Hanoi
 
     def initialize
         @pile1 = [4, 3, 2, 1]
-        @pile2 = ["_","_","_","_"]
-        @pile3 = ["_","_","_","_"]
+        @pile2 = []
+        @pile3 = []
         @towers = [@pile1, @pile2, @pile3]
     end
 
@@ -16,12 +16,12 @@ class Hanoi
     end
 
     def move(pile_pop, pile_push)
-        pop = which_pile(pile_pop)
-        push = which_pile(pile_push)
+        pop_stack = which_pile(pile_pop)
+        push_stack = which_pile(pile_push)
 
-        raise if empty?(pop)
+        raise if empty?(pop_stack)
 
-        if peek(pop) < peek(push)
+        if peek(pop_stack) < peek(push_stack)
             push << pop.pop 
             return
         else 
@@ -47,8 +47,8 @@ class Hanoi
     end
 
     def peek(pile)
-        return 0 if pile.empty?
-        pile[-1]
+        return 0 if pile.all? {ele| ele == "_"}
+        pile[-1]git 
     end
 
     def won?
@@ -66,6 +66,11 @@ class Hanoi
         end
         print "Victory! Game end."
         puts
+    end
+
+    private 
+    def queueify
+
     end
 end
 
