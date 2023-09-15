@@ -11,27 +11,16 @@ class Array
 
     def two_sum
         holder = []
-        hash = Hash.new
+        hash = Hash.new(nil)
         self.each_with_index do |ele, i|
             diff = -1 * ele 
             key = hash[diff]
             if key == nil 
-                hash[diff] = i 
+                hash[ele] = i 
             else
                 holder << [hash[diff], i]
             end
         end
-
-        holder
-
-        # self.each_with_index do |ele1, i|
-        #     self.each_with_index do |ele2, j|
-        #         if j > i && ele1 + ele2 == 0
-        #             holder << [i, j]
-        #         end
-        #     end
-        # end
-
-        # holder
+        holder.sort
     end
 end
