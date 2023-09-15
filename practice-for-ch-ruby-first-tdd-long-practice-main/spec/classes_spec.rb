@@ -23,5 +23,18 @@ describe Array do
             sample = Array.new([1,2,1,3,3])
             expect(sample.my_uniq).to_not be(sample)
         end
-    end     
+    end  
+    
+    describe "#two_sum" do
+        it "returns all pairs at positions where the elements in those positions sum to 0" do
+            sample = Array.new([-1,0,2,-2,1])
+            expect(sample.two_sum).to eq([[0,4], [2,3]])
+        end
+
+        it "returns pairs sorted dictionary wise" do 
+            sample = Array.new([-1, 1, -2, 2, 0, 1])
+            expect(sample.two_sum).to eq([[0,1], [0,5], [2,3]])
+        end
+    end
 end
+
