@@ -36,5 +36,41 @@ describe Array do
             expect(sample.two_sum).to eq([[0,1], [0,5], [2,3]])
         end
     end
+
+    describe "#my_transpose" do
+        it "returns a row oriented representation of columns" do
+            sample = Array.new([
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8]
+              ])
+
+            expect(sample.my_transpose).to eq([
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8]
+              ])
+        end
+
+        it "returns a square matrix" do
+            sample = Array.new([
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8]
+            ])
+            
+            expect(sample.length).to eq(3)
+            expect(sample[0].length).to eq(3)
+        end
+
+        context "input matrix is empty"
+            it "returns an empty 2d array" do
+                sample = Array.new([[]])
+
+                expect(sample.my_transpose).to eq([[]])
+            end
+    end
+
+
 end
 

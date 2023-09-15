@@ -23,4 +23,20 @@ class Array
         end
         holder.sort
     end
+
+    def my_transpose
+        holder = []
+        
+        self.each_with_index do |ele1, row|
+            print row
+            row_holder = []
+            row.each_with_index do |ele2, col|
+                row_holder << self[col][row]
+            end
+
+            holder << row_holder
+        end
+        
+        holder
+    end
 end
