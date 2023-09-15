@@ -39,4 +39,24 @@ class Array
         
         holder
     end
+
+    def stock_picker
+        current_diff = 0
+        largest_diff = 0
+        holder = []
+
+        self.each_with_index do |price_1, i|
+            self.each_with_index do |price_2, j|
+                if j > i 
+                    current_diff = price_2 - price_1 
+                    if current_diff > largest_diff
+                        largest_diff = current_diff
+                        holder << [i, j]
+                    end
+                end
+            end
+        end
+
+        holder[-1]
+    end
 end
